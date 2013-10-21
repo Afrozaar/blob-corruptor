@@ -1,0 +1,34 @@
+<configuration debug="true">
+    <jmxConfigurator />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+		<encoder>
+			<pattern>support %d %-5level [%thread] %logger{10} %-5level - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+
+<!-- 	<appender name="GELF" class="me.moocar.logbackgelf.GelfAppender">
+		<facility>ashes-support</facility>
+		<graylog2ServerHost>graylog.afrozaar.com</graylog2ServerHost>
+		<graylog2ServerPort>12201</graylog2ServerPort>
+		<useLoggerName>true</useLoggerName>
+		<useThreadName>true</useThreadName>
+		<graylog2ServerVersion>0.9.6</graylog2ServerVersion>
+		<chunkThreshold>1000</chunkThreshold>
+		<messagePattern>%m%rEx</messagePattern>
+		<additionalField>workerRole:_workerRole</additionalField>
+	</appender> -->
+
+	<logger name="com.jolbox" level="INFO" />
+    <logger name="com.jolbox.bonecp.PreparedStatementHandle" level="DEBUG" />
+	<logger name="com.afrozaar" level="DEBUG" />
+	<logger name="openjpa.Runtime" level="INFO" />
+	<logger name="org.springframework.web.client.RestTemplate" level="error" />
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
+
