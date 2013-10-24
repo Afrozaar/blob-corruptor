@@ -113,12 +113,11 @@ public class AzureAuditRepositoryTest {
      * @throws IOException
      */
     private void writeBlob() throws URISyntaxException, StorageException, IOException {
-        LOG.info("writing {}/{}", container, blobUrl);
         CloudBlockBlob blockBlobReference = containerReference.getBlockBlobReference(blobUrl);
         BlobOutputStream openOutputStream = blockBlobReference.openOutputStream();
         openOutputStream.write("alksjdflkasdjflaieujrol87U90O2Q84375R0OPIASrjhflkaisdjhfalskdjhfasldkfjasldfkj".getBytes());
         openOutputStream.close();
-        LOG.info("written {}/{}", container, blobUrl);
+        LOG.info("written {}", blockBlobReference.getUri());
     }
 
     @Test
